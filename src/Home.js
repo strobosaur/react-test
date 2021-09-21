@@ -10,6 +10,7 @@ const Home = () => {
   
   const [blogs, setBlogs] = useState(null);
   const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleDelete = (id) => {
     const newBlogs = blogs.filter(blog => blog.id !== id);
@@ -18,20 +19,30 @@ const Home = () => {
 
   useEffect(() => {
     fetch('http://localhost:8000/blogs')
-      .then(res => {
-        return res.json();
+      .then((result) => {
+        if(!result.ok) {
+          throw Error('No data in response');
+        }
+        return result.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
         setBlogs(data);
         setIsPending(false);
-      });
+        setError(null);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setIsPending(false);
+        setError(error.message);
+      })
   }, []);
 
   return (
     <div className="home">
+      { error && <div>{ error }</div> }
       { isPending && <div>Loading...</div> }
-      {blogs && <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />}
+      { blogs && <BlogList blogs={blogs} title="All blogs" handleDelete={handleDelete} />}
     </div>
    );
 }
