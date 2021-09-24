@@ -43,6 +43,7 @@
 }
 
 .content {
+  height: 100%;
   max-width: 600px;
   margin: 40px auto;
   padding: 20px;
