@@ -7,9 +7,9 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
   
   useEffect(() => {
-    const abortCont = new AbortController();
+    const abortCtrl = new AbortController();
 
-    fetch(url, { signal: abortCont.signal })
+    fetch(url, { signal: abortCtrl.signal })
       .then((result) => {
         if(!result.ok) {
           throw Error('No data in response');
@@ -31,7 +31,7 @@ const useFetch = (url) => {
         }
       })
 
-      return () => abortCont.abort();
+      return () => abortCtrl.abort();
   }, [url]);
 
   return {data, isPending, error};
