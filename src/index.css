@@ -6,6 +6,8 @@
   --background1: #333;
   --text1: rgb(25, 180, 140);
   --text2: rgb(225, 25, 125);
+  --white: #fff;
+  --offwhite: #ddd;
 }
 
 * {
@@ -21,7 +23,7 @@
   align-items: center;
   max-width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid var(--white);
 }
 
 .navbar h1 {
@@ -86,7 +88,43 @@
 
 .blog-details button {
   background: var(--text2);
-  color: #fff;
+  color: var(--white);
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* create blog form */
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.create label {
+  text-align: left;
+  display: block;
+}
+
+.create h2 {
+  font-size: 20px;
+  color: var(--text1);
+  margin-bottom: 30px;
+}
+
+.create input, .create textarea, .create select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid var(--offwhite);
+  box-sizing: border-box;
+  display: block;
+}
+
+.create button {
+  background: var(--text1);
+  color: var(--white);
   border: 0;
   padding: 8px;
   border-radius: 8px;
