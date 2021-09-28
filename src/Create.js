@@ -5,24 +5,37 @@ const Create = () => {
   const [body, setBody] = useState('');
   const [author, setAuthor] = useState('mario');
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const blog = { title, body, author };
+
+    fetch('http://localhost:8000/blogs', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json"},
+      body: JSON.stringify(blog)
+    }).then(() => {
+      console.log('new post added');
+    })
+  }
+
   return ( 
     <div className="create">
-      <h2>Add a new blog</h2>
-      <form>
-        <label>Blog title</label>
+      <h2>Add a new post</h2>
+      <form onSubmit={handleSubmit}>
+        <label>Post title</label>
         <input
           type="text"
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label>Blog body</label>
+        <label>Post body</label>
         <textarea
           required
           value={body}
           onChange={(e) => setBody(e.target.value)}
         ></textarea>
-        <label>Blog author</label>
+        <label>Post author</label>
         <select
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
