@@ -3,9 +3,9 @@
 
 /* base styles */
 :root {
-  --background1: #333;
-  --text1: rgb(25, 180, 140);
-  --text2: rgb(225, 25, 125);
+  --background1: rgb(30, 32, 31);
+  --text1: rgb(35, 200, 160);
+  --text2: rgb(255, 35, 145);
   --white: #fff;
   --offwhite: #ddd;
 }
