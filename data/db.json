@@ -29,6 +29,12 @@
       "body": "I just wrote some react code",
       "author": "yoshi",
       "id": 5
+    },
+    {
+      "title": "Back home again...",
+      "body": "If this post works, i should end up at the home page. No place like home...",
+      "author": "mario",
+      "id": 6
     }
   ]
 }
